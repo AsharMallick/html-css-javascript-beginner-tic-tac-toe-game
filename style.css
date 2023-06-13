@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+    transition: all 0.3s ease-in-out;
+}
+
+body {
+    background-color: aqua;
+}
+
+ul>li {
+    list-style: none;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+    font-size: larger;
+}
+
+header {
+    height: 10vh;
+    background-color: black;
+    color: white;
+}
+
+.box {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text{
+    padding: 40px;
+    margin: -2px;
+    border:2px solid black;
+    font-size: x-large;
+    font-weight: bolder;
+}
+.row{
+    height: 10%;
+    margin: 20px;
+}
+
+.br-0{
+    border-right: 0;
+}
+.bb-0{
+    border-bottom: 0;
+}
+.bl-0{
+    border-left: 0;
+}
+.bt-0{
+    border-top: 0;
+}
+
+.text:active{
+    background-color: rgb(9, 184, 184);
+}
+.text:visited{
+    background: red;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.score{
+    font-size: xx-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#reset, .resetScores{
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: black;
+    margin: 20px;
+}
