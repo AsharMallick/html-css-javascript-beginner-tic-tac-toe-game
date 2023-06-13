@@ -8,25 +8,40 @@ let scores = {};
 const winningAudio = new Audio("winning-music.mp3");
 let turn = "X";
 
+
+function changeTurnRandomly(){
+    let randInt = Math.round(Math.random());
+    if(randInt===0){
+        turn = "X";
+    }else {
+        turn = "0";
+    }
+    
+}
+changeTurnRandomly()
+addEventListener("load", () => {
+  heading.innerHTML = `${turn == "X" ? "X" : "0"}'s turn`;
+});
+
 //JavaScript function hoisting
 displayScores();
 
 function animateColor() {
   let i = 184;
-  let k = 0
+  let k = 0;
   let m = 50;
   setInterval(() => {
-    m += Math.ceil(Math.random()*250);
-    i += Math.ceil(Math.random()*50);
-    k += Math.ceil(Math.random()*50);
+    m += Math.ceil(Math.random() * 250);
+    i += Math.ceil(Math.random() * 50);
+    k += Math.ceil(Math.random() * 50);
     if (i >= 255) {
       i = Math.ceil(Math.random() * 250);
     }
-    if(k>=20){
-        k = Math.ceil(Math.random() * 250);
+    if (k >= 20) {
+      k = Math.ceil(Math.random() * 250);
     }
-    if(m>=200){
-        m = 200||Math.ceil(Math.random() * 250);
+    if (m >= 200) {
+      m = 200 || Math.ceil(Math.random() * 250);
     }
     document.body.style.backgroundColor = `rgb(${m}, ${i}, ${k})`;
   }, 2000);
@@ -38,7 +53,7 @@ function resetGame() {
   Array.from(textBoxes).forEach((item) => {
     item.innerText = "";
   });
-  heading.innerText = "";
+  heading.innerHTML = `${turn == "X" ? "X" : "0"}'s turn`;
 }
 
 function clearOnDraw() {
@@ -79,7 +94,7 @@ function win(turn) {
       if (localStorage.getItem("scores")) {
         localData = JSON.parse(localStorage.getItem("scores"));
       } else {
-        localData = { X: 0, zero: 0 };
+        localData = { X: 1, zero: 0 };
       }
       console.log({ someoneWon });
       someoneWon = true;
@@ -88,6 +103,8 @@ function win(turn) {
         alert(`${turn} won`);
         resetGame();
       }, 250);
+      heading.innerHTML = `${turn == "X" ? "X" : "0"}'s turn`;
+
       console.log({ localData });
       if (turn == "X") {
         localData["X"] += 1;
@@ -152,3 +169,5 @@ resetScore.addEventListener("click", () => {
     score_0.innerText = 0;
   }
 });
+
+heading.innerHTML = `${turn == "X" ? "X" : "0"}'s turn`;

@@ -13,6 +13,10 @@ ul>li {
     list-style: none;
 }
 
+.heading{
+    font-size: 50px;
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -35,58 +39,78 @@ header {
     align-items: center;
 }
 
-.text{
+.text {
     padding: 40px;
-    margin: -2px;
-    border:2px solid black;
+    border: 10px solid rgba(0, 0, 0, 0.6);
     font-size: x-large;
     font-weight: bolder;
-}
-.row{
-    height: 10%;
-    margin: 20px;
+    font-size: 90px;
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.br-0{
+.row {
+    /* height: 10%; */
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 10vw);
+    grid-template-rows: repeat(3, 10vw);
+}
+
+.br-0 {
     border-right: 0;
 }
-.bb-0{
+
+.bb-0 {
     border-bottom: 0;
 }
-.bl-0{
+
+.bl-0 {
     border-left: 0;
 }
-.bt-0{
+
+.bt-0 {
     border-top: 0;
 }
 
-.text:active{
+.text:active {
     background-color: rgb(9, 184, 184);
 }
-.text:visited{
+
+.text:visited {
     background: red;
 }
 
-.container{
+.container {
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
 }
 
-.score{
-    font-size: xx-large;
+.score {
+    font-size: 70px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#reset, .resetScores{
+#reset,
+.resetScores {
     color: white;
     border: none;
     border-radius: 10px;
     padding: 10px;
     background-color: black;
     margin: 20px;
+    font-size: 30px;
 }
+#reset:hover,
+.resetScores:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: black;
+}
+
