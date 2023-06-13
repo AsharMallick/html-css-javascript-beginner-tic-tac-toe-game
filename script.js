@@ -5,8 +5,7 @@ let score_x = document.querySelector(".score_x");
 let resetScore = document.querySelector(".resetScores");
 let scores = {};
 
-const winningAudio = new Audio('winning-music.mp3');
-
+const winningAudio = new Audio("winning-music.mp3");
 let turn = "X";
 
 //JavaScript function hoisting
@@ -14,13 +13,23 @@ displayScores();
 
 function animateColor() {
   let i = 184;
+  let k = 0
+  let m = 50;
   setInterval(() => {
-    i += 10;
+    m += Math.ceil(Math.random()*250);
+    i += Math.ceil(Math.random()*50);
+    k += Math.ceil(Math.random()*50);
     if (i >= 255) {
-      i = 184;
+      i = Math.ceil(Math.random() * 250);
     }
-    document.body.style.backgroundColor = `rgb(9, ${i}, 184)`;
-  }, 1000);
+    if(k>=20){
+        k = Math.ceil(Math.random() * 250);
+    }
+    if(m>=200){
+        m = 200||Math.ceil(Math.random() * 250);
+    }
+    document.body.style.backgroundColor = `rgb(${m}, ${i}, ${k})`;
+  }, 2000);
 }
 
 animateColor();
@@ -74,7 +83,7 @@ function win(turn) {
       }
       console.log({ someoneWon });
       someoneWon = true;
-      (async()=> await winningAudio.play())();
+      (async () => await winningAudio.play())();
       setTimeout(() => {
         alert(`${turn} won`);
         resetGame();
@@ -115,7 +124,10 @@ Array.from(textBoxes).forEach((item) => {
 });
 
 reset.addEventListener("click", () => {
-  resetGame();
+  let sure = confirm("Are you sure to want to reset the game?");
+  if (sure) {
+    resetGame();
+  }
 });
 
 function displayScores() {
